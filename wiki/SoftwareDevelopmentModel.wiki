@@ -21,14 +21,12 @@ The initial waterfall model involves a *finish-to-start* dependency structure i.
 
 It follows the steps in order:
 
-1. Understanding Domain and finalizing Requirement Specifications
-2. Designing the structure for the software. First a broad overview and then the finer detailed structure.
-3. Programming the software
-4. Testing the software and receiving the feedback, based on which the debugging exercise would take place
-5. Deployment and maintenance of software
+  # Understanding Domain and finalizing Requirement Specifications
+  # Designing the structure for the software. First a broad overview and then the finer detailed structure.
+  # Programming the software
+  # Testing the software and receiving the feedback, based on which the debugging exercise would take place
+  # Deployment and maintenance of software
 
 However since we are using the modified Waterfall model that states that feedback could at times lead from testing to design as there might be flaws in design that are uncovered based on testing of software and from design back to requirements specification because certain requirements might be presenting a difficulty in the design structure.
 
 So it would be slightly flexible in nature. 
-
-
