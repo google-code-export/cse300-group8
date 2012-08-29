@@ -5,3 +5,5 @@ When a project is being executed by a large group it is imperative that they pre
 Attached is the link to the Google spreadsheet prepared by us providing specific details of the project plan. 
 
 https://docs.google.com/a/iiitd.ac.in/spreadsheet/ccc?key=0AlynWWUJuNPFdE9FM1pqUXFpa01aaVNRNFJpVHZYZ3c#gid=0
+
+Changes to this spreadsheet would be made at regular intervals.
