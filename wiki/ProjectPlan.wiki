@@ -1,3 +1,4 @@
+#labels Featured
 This is the *project plan* for the next two weeks w.e.f. *27th August*. 
 
 When a project is being executed by a large group it is imperative that they prepare a plan of action and assign tasks to different members. The project plan ensures that all the members are able to manage the work allotted to them in a phased manner.  
