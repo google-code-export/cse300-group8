@@ -1,6 +1,6 @@
 #summary Project Name: SoftCopy
 #labels Phase-Requirements,Featured
 
-Softcopy
+=Soft Copy=
 
-After a lot of brainstorming we have decided to finalize the name of this project as *Softcopy*. This name was suggested by _Adway Malhotra_ while he was travelling in the metro. We hope to soon come up with the logo pretty soon.  Currently Apoorv and Purujit are working on it.
+After a lot of brainstorming we have decided to finalize the name of this project as *Soft Copy*. This name was suggested by _Adway Malhotra_ while he was travelling in the metro. We hope to soon come up with the logo pretty soon.  Currently Apoorv and Purujit are working on it.
