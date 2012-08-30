@@ -1,0 +1,8 @@
+#summary A BPM for the process of reimbursement of telephone bill of faculty in IIIT-Delhi.
+
+= Introduction =
+
+A Business Process Model is a very efficient model to understand the workflow of a process i.e. how a process works. It allows us to capture the process in a diagrammatic representation. 
+
+
+http://code.google.com/p/cse300-group8/downloads/detail?name=BusinessProcessModel.png&can=2&q=#makechanges
