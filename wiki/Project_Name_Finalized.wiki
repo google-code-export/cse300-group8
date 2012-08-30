@@ -1,0 +1,6 @@
+#summary One-sentence summary of this page.
+#labels Phase-Requirements,Featured
+
+=SoftCopy=
+
+The name of this project has been finalized as "*_SoftCopy_*", as suggested by *Adway Malhotra* after lots of discussion. We hope to soon come up with the logo, currently Apoorv and Purujit are working on it.
