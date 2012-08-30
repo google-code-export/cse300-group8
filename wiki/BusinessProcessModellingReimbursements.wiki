@@ -4,4 +4,4 @@
 
 A Business Process Model is a very efficient model to understand the workflow of a process i.e. how a process works. It allows us to capture the process in a diagrammatic representation. 
 
-https://www.google.com/chart?chs=150x150&cht=qr&chl=http://cse300-group8.googlecode.com/files/BusinessProcessModel.png&chld=L|1&choe=UTF-8
+http://cse300-group8.googlecode.com/files/BusinessProcessModel.png
