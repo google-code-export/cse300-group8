@@ -30,5 +30,3 @@ It follows the steps in order:
 However since we are using the modified Waterfall model that states that feedback could at times lead from testing to design as there might be flaws in design that are uncovered based on testing of software and from design back to requirements specification because certain requirements might be presenting a difficulty in the design structure.
 
 So it would be slightly flexible in nature. 
-
-http://en.wikipedia.org/wiki/File:Process_and_data_modeling.svg
