@@ -1,5 +1,5 @@
+#summary Project Name: SoftCopy
 #labels Phase-Requirements,Featured
-#Summary:Project Name: SoftCopy
 
 =SoftCopy=
 
