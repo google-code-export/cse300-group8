@@ -1,0 +1,19 @@
+#labels Phase-Requirements
+#Staff Talks: Mr. Vivek Tiwari
+
+=The Talk=
+
+Had a talk with vivek sir concerning what people we are supposed to talk to for specific matters such as who is responsible for looking after leave applications for faculty and staff, who look into reimbursement request etc.
+
+
+=Details=
+
+As was planned _Pranjal_ and _Utkarsha_ met with _Vivek_ sir at his cabin on the 29th to discuss on the project. The main purpose of the meeting was to learn of all the staff members who are heading different department and who would be able to help us on our project.
+
+During the discussion Vivek sir advised us to talk to *Anoop Sir*, as he served as the *Faculty Point Of Contact*, thus would enable us to get an idea of what processes the faculty is put through if they are to register for a leave or reimbursement and what goes on after, once the applying faculty in out of the picture, like who reviews and who proves them.
+
+He also recommended us a talk with *Ms. Suruchi* from the finance department. As she might help us understand how the reimbursements and the allowances are issued, once their applications have been approved.
+
+=Plan=
+
+We plan to talk with Suruchi ma'am and Anoop sir on the 3rd,Monday, as currently they were busy preparing for a board meeting on the 31st, and then we plan to talk with the faculty to have a first hand view of what problems they go through and if there are any other problems that we may accommodate in out software. The Questionnaires have been prepared.
