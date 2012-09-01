@@ -2,7 +2,7 @@
 
 = Introduction =
 
-In software development, our first priority should be to identify the stakeholders i.e. the people who are likely to be affected by the proposed software.
+In software development, our first priority should be to *identify the stakeholders* i.e. the people who are likely to be affected by the proposed software.
 
 = The Stakeholders =
 
