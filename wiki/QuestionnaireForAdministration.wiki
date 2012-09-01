@@ -10,6 +10,6 @@ We have already mentioned that different administration departments such as fina
 
 We have prepared a questionnaire for this purpose. Through this questionnaire we intend to get an overview of the different processes that we plan to automate. We would be able to understand the process from their context and their roles. This would help us in designing the initial prototype of our software. 
 
-http://cse300-group8.googlecode.com/files/Questionnaire%2520for%2520Project%2520Implementation%2520%2528ADMINISTRATION%2529.pdf
+http://cse300-group8.googlecode.com/files/Questionnaire%20for%20Project%20Implementation%20%28ADMINISTRATION%29.pdf
 
   
