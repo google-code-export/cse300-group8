@@ -1,0 +1,10 @@
+#summary BPM for the process of leave
+#labels Phase-Requirements
+
+= Introduction =
+
+Here we are describing the business process model for the process of applying for leave by faculty in IIIT-Delhi. This is the as-is model explaining the current situation. Its through the understanding of this model that we can work on improving the way the process works.
+
+= Details =
+
+http://cse300-group8.googlecode.com/files/BusinessProcessModelLeave.png
