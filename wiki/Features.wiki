@@ -16,6 +16,7 @@ Any software design process has two stages of development. Firstly, the essentia
   * Automatic notification of status change.
   * *Admin Feature:* Automatic Record Maintenance.
   * *Admin Feature:* Allowed to check all records for all faculty.
+  * *Admin Feature:* Allowed to add faculty members to the system.
 ====Telephone Bill/Broadband Reimbursement====
 ====Medical Allowance====
 
