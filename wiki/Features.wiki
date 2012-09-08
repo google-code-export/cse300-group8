@@ -1,0 +1,26 @@
+#summary This page lists all features, desired and essential.
+#labels Phase-Requirements,Phase-Design
+= Introduction =
+Any software design process has two stages of development. Firstly, the essential features are implemented. When this stage is over,the onus is on the integration of desired features.
+
+
+==*Essential Features:*==
+====General====
+  * Help Page
+====Leave Management====
+  * Faculty can apply for leave through a single form. The form changes according to the type of leave application.
+  * Past records can be checked along with their status.
+  * Form will have feature to upload supporting documents, such as invitation for an event etc.
+  * Automatic calculation of no. of leaves used up and left in current calendar year.
+  * Check status of current application.
+  * Automatic notification of status change.
+  * *Admin Feature:* Automatic Record Maintenance.
+  * *Admin Feature:* Allowed to check all records for all faculty.
+====Telephone Bill/Broadband Reimbursement====
+====Medical Allowance====
+
+==*Desired Features:*==
+====General====
+====Leave Management====
+====Telephone Bill/Broadband Reimbursement====
+====Medical Allowance====
