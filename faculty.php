@@ -34,17 +34,121 @@ else if ($_SESSION['role']=="faculty") {
        
           
           <link href="style/bootstrap.css" rel="stylesheet">
+           <link href="style/jquery-ui.css" rel="stylesheet">
            <link href="style/style.css" rel="stylesheet">
+           <link rel="stylesheet" media="screen" type="text/css" href="style/datepicker.css" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
-   
-     
+   <script>
+function Checkfin(val){
+ var element=document.getElementById('fin');
+ if(val=='Work Leave')
+   element.style.display='block';
+ else  
+   element.style.display='none';
+}
+</script>
+<script>
+function Checksource(val){
+ var element=document.getElementById('cb');
+ if((val=='PDA')|(val=='Project Number'))
+   element.style.display='block';
+ else  
+   element.style.display='none';
+}
+</script>
+<script>
+ function weekdayc()
+ {
+Date1 = document.getElementById('Date').value;
+Date2 = document.getElementById('Date2').value;
+dDate1=new Date (Date1);
+dDate2=new Date(Date2);
+//document.getElementById('nod').value =date1;
+//calcBusinessDays(date1, date2);
+var iWeeks, iDateDiff, iAdjust = 0;
+
+  if (dDate2 < dDate1) return -1;                 // error code if dates transposed
+
+  var iWeekday1 = dDate1.getDay();                // day of week
+  var iWeekday2 = dDate2.getDay();
+
+  iWeekday1 = (iWeekday1 == 0) ? 7 : iWeekday1;   // change Sunday from 0 to 7
+  iWeekday2 = (iWeekday2 == 0) ? 7 : iWeekday2;
+
+  if ((iWeekday1 > 5) && (iWeekday2 > 5)) iAdjust = 1;  // adjustment if both days on weekend
+
+  iWeekday1 = (iWeekday1 > 5) ? 5 : iWeekday1;    // only count weekdays
+  iWeekday2 = (iWeekday2 > 5) ? 5 : iWeekday2;
+
+  // calculate differnece in weeks (1000mS * 60sec * 60min * 24hrs * 7 days = 604800000)
+  iWeeks = Math.floor((dDate2.getTime() - dDate1.getTime()) / 604800000)
+
+  if (iWeekday1 <= iWeekday2) {
+    iDateDiff = (iWeeks * 5) + (iWeekday2 - iWeekday1)
+  } else {
+    iDateDiff = ((iWeeks + 1) * 5) - (iWeekday1 - iWeekday2)
+  }
+
+  iDateDiff -= iAdjust                            // take into account both days on weekend
+
+ // return (iDateDiff + 1);                         // add 1 because dates are inclusive
+ 
+ //document.getElementById('nod').innerHTML = iDateDiff + 1;
+ document.getElementById('nod').value =iDateDiff + 1;
+ }
+</script>
+<script>
+
+
+function calcBusinessDays(dDate1,dDate2) {         // input given as Date objects
+
+  var iWeeks, iDateDiff, iAdjust = 0;
+
+  if (dDate2 < dDate1) return -1;                 // error code if dates transposed
+
+  var iWeekday1 = dDate1.getDay();                // day of week
+  var iWeekday2 = dDate2.getDay();
+document.getElementById('nod').value =dDate1;
+  iWeekday1 = (iWeekday1 == 0) ? 7 : iWeekday1;   // change Sunday from 0 to 7
+  iWeekday2 = (iWeekday2 == 0) ? 7 : iWeekday2;
+
+  if ((iWeekday1 > 5) && (iWeekday2 > 5)) iAdjust = 1;  // adjustment if both days on weekend
+
+  iWeekday1 = (iWeekday1 > 5) ? 5 : iWeekday1;    // only count weekdays
+  iWeekday2 = (iWeekday2 > 5) ? 5 : iWeekday2;
+
+  // calculate differnece in weeks (1000mS * 60sec * 60min * 24hrs * 7 days = 604800000)
+  iWeeks = Math.floor((dDate2.getTime() - dDate1.getTime()) / 604800000)
+
+  if (iWeekday1 <= iWeekday2) {
+    iDateDiff = (iWeeks * 5) + (iWeekday2 - iWeekday1)
+  } else {
+    iDateDiff = ((iWeeks + 1) * 5) - (iWeekday1 - iWeekday2)
+  }
+
+  iDateDiff -= iAdjust                            // take into account both days on weekend
+
+ // return (iDateDiff + 1);                         // add 1 because dates are inclusive
+ 
+ //document.getElementById('nod').innerHTML = iDateDiff + 1;
+// document.getElementById('nod').value =iDateDiff + 1;
+
+}
+</script>
+  <script>
+  function update(){
+    // Assuming we have #shoutbox
+    $('#body').load('faculty_f.php');
+}
+setInterval( "update()", 5000 );
+  </script>   
     </head>
-<body>
+<body onLoad="update();">
 <div class="left_menu">
-<div id="leave"><a href="#"><b>Leaves</b></a></div>
+<!--<div id="leave"><a href="#"><b>Leaves</b></a></div>
 <div id="rim"><a href="#"><b>Reimbursements</b></a></div>
-<div id="bills"><a href="#"><b>Bills</b></a></div>
-<div id="logout"><a href="logout.php"><b>Logout</b></a></div>
+<div id="bills"><a href="#"><b>Bills</b></a></div>-->
+<div id="logout_a"><a href="logout.php"><b>Logout</b></a></div>
 <?
 $id=$_SESSION['userid']; 
 $qry = "SELECT * FROM users WHERE id='$id'";
@@ -52,7 +156,7 @@ $qry = "SELECT * FROM users WHERE id='$id'";
    $info=mysql_fetch_assoc($result);?>
 <div id="logo2"></div></div>
 <div class="info_bar">
-<div id="name" style="font-family: 'Fugaz One';"><? echo $info['name']; ?> <br/><br/> <? echo "<div style='font-size:16px;'>".$info['role']." </div>"; ?></div>
+<div id="name" style="font-family:'Kohinoor Bold';"><? echo $info['name']; ?> <br/><br/> <? echo "<div style='font-size:16px;'>".$info['role']." </div>"; ?></div>
 <div class="dp_area">
 <a data-toggle="modal"  href="#addpic" title="Click to add/change your pic">
 <? if(!$info['pic'])
@@ -75,16 +179,7 @@ else
 </div>
 
 
-<div class="body">
-<div class="leave-body">
-<h1 style="color:#399;"> Leaves</h1>
-<br/>
-<h3><a data-toggle="modal"  href="#addleave">+ | Submit a leave application</a></h3>
-
-
-
-</div>
-
+<div class="body" id="body">
 
 </div>
 
@@ -97,15 +192,40 @@ else
             <div class="modal-body">
               <center><p><b>Submit leave application</b> </p></center>
 
-        <form  action="addleave.php" method="post">
+        <form enctype="multipart/form-data" action="addleave.php" method="post">
 From (mm/dd/yy):<br/>
- <textarea  name='from' rows='1' cols='500' wrap="physical" placeholder="12/12/12" ></textarea> <br/>
+<!-- <textarea id="inputDate"  name='from' rows='1' cols='500' wrap="physical" placeholder="12/12/12" ></textarea>-->
+ <input class="d1" id="Date" name="from" type="date" value="" > <br/>
 To (mm/dd/yy):<br/>
- <textarea  name='to' rows='1' cols='500' wrap="physical" placeholder="12/12/12" ></textarea> <br/>
+ <input class="d2" id="Date2" name="to" type="date" value="" onChange="weekdayc();" > <br/> 
+ 
 No. of days <br/>
-<textarea  id="expand" class="txtarea" name='name' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
-Reason of leave <br/>
-<select> <option>Paid Leave</option> <option>Work Leave</option> <option>Unpaid Leave</option> <option>Vacation Leave</option> <option>Casual Leave</option><option>Sabbatical Leave</option></select><br/>
+<input  id="nod"  name='days' rows='1' cols='1000' wrap="physical" value="" /> <br/>
+Type of leave <br/>
+<select name="type" id="type" onchange='Checkfin(this.value);'> <option value="Paid Leave">Paid Leave</option> <option  value="Work Leave">Work Leave</option> <option value="Unpaid Leave">Unpaid Leave</option> <option value="Vacation Leave">Vacation Leave</option> <option value="Casual Leave">Casual Leave</option><option value="Sabbatical Leave">Sabbatical Leave</option></select><br/>
+
+Reason<br/>
+<textarea name="reason" rows="3"></textarea><br/>
+Number of Classes Missed<br/>
+<textarea name="n_cls" rows="1"></textarea><br/>
+
+<div id="fin" style="display:none;">
+Source of Financial Support<br/>
+<select name='finsup' id="finsup"  value='' onchange='Checksource(this.value);'><option value="Institute">Institute</option><option value="PDA">PDA</option><option value="Project Number">Project Number</option><option value="Other">Other</option></select><br/>
+
+Attach a file: <input type="file" name="file" value="">
+Approximate expenses for the travel<br/>
+<textarea name='amount' rows='1' value=""></textarea><br/>
+<div id="cb" style="display:none;">
+<input type='checkbox' name='agree' value='1'  /> I have checked that in my PDA/Project there are sufficient funds under suitable budget head for this travel.</div><br />
+</div>
+Destination<br/>
+<textarea name="city" rows="1" placeholder="City"></textarea><textarea name="country" rows="1" placeholder="Country"></textarea><br/>
+
+
+
+
+
   <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer"> Submit </button>
   
 </form>
@@ -145,19 +265,18 @@ Address <br/>
   <textarea  id="expand" class="txtarea" name='phone' rows='1' cols='1000' wrap="physical" ><? echo $info['phone'];?></textarea> <br/>
  Marital Status <br/>
   <select name="m_status">
-  <?  if($info['m_status']==0){ ?>
+ 
   <option>
-  <? echo "Single"; }
-  else {
-  echo "Married"; } ?>
+   <?  echo $info['m_status']; ?>
   </option>
-  <?  if($info['m_status']==0){ ?>
+  
   <option>
-  <? echo "Married"; }
-  else 
-  echo "Single"; ?>
+  <?  if($info['m_status']=="married"){ 
+   echo "single"; }
+  else if($info['m_status']=="single")
+  echo "married"; ?>
   </option>
-  </select>
+ </select>
   <br/>
   No. of children <br/>
   <textarea  id="expand" class="txtarea" name='child' rows='1' cols='1000' wrap="physical" ><? echo $info['child'];?></textarea> <br/>
@@ -170,9 +289,37 @@ Address <br/>
           </div>
           </div>
 
- <script type="text/javascript" src='http://code.jquery.com/jquery-1.7.2.js'></script>
+
       <script type="text/javascript" src="js/bootstrap-button.js"></script>
+  
+     
+      <script type="text/javascript" src="js/jquery.js"></script>
+    <script>  
+   (function() {  
+      var elem = document.createElement('input');  
+      elem.setAttribute('type', 'date');  
+  
+      if ( elem.type === 'text' ) {  
+         $('#date').datepicker(); 
+		 $('#date2').datepicker();   
+      }  
+   })();  
+  
+</script>
         <script type="text/javascript" src="js/bootstrap-modal.js"></script>
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script> 
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>  
+<script src="js/jquery-ui.js"></script>
+
 </body>
 </html>
-<? } ?>
+<? }
+else if ($_SESSION['role']=="admin")
+{
+	header('LOCATION:admin.php');
+}
+else if ($_SESSION['role']=="director")
+{
+	header ('LOCATION:director.php');
+}
+?>
