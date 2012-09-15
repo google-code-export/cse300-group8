@@ -1,0 +1,429 @@
+@charset "utf-8";
+/* CSS Document */
+
+#logo-side
+{
+	position:fixed;
+	width:520px;
+	height:100%;
+	left:0px;
+	top:0px;
+	background:#48BED7;
+	/*background:#39C;*/
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+}
+#bg1
+{
+	position:fixed;
+	width:520px;
+	height:100%;
+	left:10px;
+	top:0px;
+	background:#39F;
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+}
+
+
+#bg2
+{
+	position:fixed;
+	width:520px;
+	height:100%;
+	left:20px;
+	top:0px;
+	background:#3CF;
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+}
+#bg3
+{
+	position:relative;
+	left:55%;
+	top:30%;
+	width:350px;
+	opacity: 0.89;
+	background:#CCC;
+	-webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    7px 7px 5px rgba(50, 50, 50, 0.75);
+box-shadow:         7px 7px 5px rgba(50, 50, 50, 0.75);
+	border:1px dotted #666;
+}
+#logo
+{
+	position:absolute;
+	width:500px;
+	height:500px;
+	background:url(../logo.png);
+	top:15%;
+	left:10px;
+}
+.bdy
+{
+
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+	background:url(../bg.jpg)
+
+}
+#login
+{
+	position:relative;
+	width:100%;
+	padding-bottom:10px;
+	padding-top:10px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+footer
+{
+	position:absolute;
+	text-decoration:none;
+	font-size:16px;
+	color:#FFF;
+	top:90%;
+	left:57%;
+	width:25%;
+	word-spacing:10px;
+}
+.main a
+{
+	text-decoration:none;
+	color:#FFF;
+}
+.main a:hover
+{
+	text-decoration:none;
+	color:#FFF;
+}
+.inp
+{
+	width:300px;
+}
+.ad_login
+{
+	position:absolute;
+	top:0px;
+	left:85%;
+	width:130px;
+	font-size:18px;
+	color:#FFF;
+	height:30px;
+	background:#399;
+	padding-left:10px;
+	padding-top:5px;
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, .52);
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .52);
+}
+.info_bar
+{
+	background:url(../topbar.png) repeat-x;
+	top:0px;
+	height:100px;
+	position:absolute;
+	width:100%;
+	 z-index: 4;
+        
+	
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+	
+}
+.dp_area
+{
+	display:block;
+	position:relative;
+	left:40%;
+	top:10px;
+	width:150px;
+	height:150px;
+	z-index:0;
+	border:3px solid #CCC;
+
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+	z-index: 0;
+}
+.left_menu
+{
+	position:fixed;
+	width:125px;
+	height:100%;
+	left:5%;
+	top:0px;
+	font: normal 18px/1.3 'Open Sans', sans-serif;
+	/*background:#48BED7;*/
+	opacity:0.8;
+	border-right:1px #333 solid;
+	
+	 z-index: 4;
+	 padding-left:5px;
+	 padding-right:10px;
+       
+
+	/*background:#39C;*/
+	/*-moz-box-shadow: 0 0 7px rgba(0, 0, 0, .90);
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .90);*/
+}
+#logo2
+{
+	position:relative;
+	width:100px;
+	height:100px;
+	
+	background:url(../logo_2.png);
+	top:80%;
+	left:10px;
+}
+#leave
+{
+	position:relative;
+	padding-right:3px;
+	float:right;
+	top:180px;
+}
+#rim
+{
+	position:relative;
+	padding-right:3px;
+	float:right;
+	top:200px;
+}
+#bills
+{
+	position:relative;
+	padding-right:3px;
+	float:right;
+	top:220px;
+	left:50px;
+}
+#add_faculty
+{
+	
+	position:relative;
+	padding-right:3px;
+	float:right;
+	top:240px;
+
+}
+#logout
+{
+	position:relative;
+	padding-right:3px;
+	top:255px;
+	float:right;
+	left:30px;
+}
+
+#logout_a
+{
+	position:relative;
+	padding-right:3px;
+	top:255px;
+	float:right;
+	left:0px;
+}
+#logout_d
+{
+	position:relative;
+	padding-right:3px;
+	top:255px;
+	float:right;
+	
+}
+.left_menu a
+{
+	text-decoration:none;
+	font-size:14px;
+	color:#333;
+}
+.left_menu a:hover
+{
+	text-decoration:none;
+	font-size:14px;
+	color:#399;
+}
+.left_menu a:active
+{
+	text-decoration:none;
+	font-size:14px;
+	color:#399;
+}
+#name
+{
+	position:absolute;
+	left:20px;
+	font-size:30px;
+	top:30px;
+	color:#FFF;
+	width:30%;
+}
+#info
+{
+	position:absolute;
+	display:block;
+	left:70%;
+	font-size:20px;
+	top:30px;
+	color:#FFF;
+	width:30%;
+	}
+.leave-body2
+{
+	position:relative;
+	top:80px;
+	left:300px;
+	width:60%;
+}
+.leave-body
+{
+	position:relative;
+	top:80px;
+	left:300px;
+	width:40%;
+}
+.body a:hover
+{
+	text-decoration:none;
+}
+.l-notification
+{
+	
+	width:100%;
+	position:relative;
+	height:100%;
+	top:20px;
+}
+#l-body
+{
+	padding-bottom:15px;
+	border-bottom:1px solid #333;
+	padding-top:15px;
+	width:70%;
+}
+.la-notification
+{
+
+	
+	width:100%;
+	position:relative;
+	height:100%;
+	top:20px;
+}
+#la-body
+{	width:60%;
+	padding-bottom:20px;
+	border-bottom:1px solid #333;
+	padding-top:15px;
+}
+.approved
+{
+	width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+		top:-70px;
+		
+		background:url(../approved1.png)  no-repeat;
+	
+}
+.pending
+{
+	width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+	top:-70px;
+	background:url(../pending.png)  no-repeat;
+}
+.sentback
+{
+	width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+	top:-70px;
+	background:url(../sentback.png)  no-repeat;
+}
+.rejected
+{
+width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+	top:-70px;
+	background:url(../rejected1.png)  no-repeat;
+}
+.progress
+{
+width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+	top:-70px;
+	background:url(../progress.png)  no-repeat;
+}
+.forward
+{
+	width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+	top:-70px;
+	background:url(../forward.png)  no-repeat;
+}
+.sendback
+{
+	width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+	top:-70px;
+	background:url(../sendback.png)  no-repeat;
+}
+.approve
+{
+	width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+	top:-70px;
+	background:url(../approve.png)  no-repeat;
+}
+.reject
+{
+	width:100px;
+	height:37px;
+	position:relative;
+	float:right;
+	top:-70px;
+	background:url(../reject.png)  no-repeat;
+}
+.counter
+{
+	position:fixed;
+	left:70%;
+	border-left:1px #333 solid;
+	width:50%;
+	height:100%;
+	top:0px;
+	
+}
+.counter_con
+{
+	position:relative;
+	top:200px;
+	width:80%;
+	left:10%;
+}
+@font-face {
+  font-family: 'Kohinoor';
+  src: local('Kohinoor'), local('Kohinoor'),
+    url("../fonts/Kohinoor-Bold.otf") format("opentype");
+    
+}
