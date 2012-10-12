@@ -1,5 +1,5 @@
 #labels Phase-Design
-#The ER Diagram for leaveDesk.
+The ER Diagram for leaveDesk.
 
 = Introduction =
 
