@@ -5,4 +5,4 @@
 
 This is the ER diagram that we have prepared for the project. It contains 3 entity tables : User, Leave and Leave Counter. 
 
-http://cse300-group8.googlecode.com/files/Deliverable%25203%2520-%2520ER%2520Diagram%2520Leave%2520Desk.png
+http://cse300-group8.googlecode.com/files/Deliverable%203%20-%20ER%20Diagram%20Leave%20Desk.png
