@@ -1,5 +1,5 @@
+#summary The ER Diagram for the project
 #labels Phase-Design
-The ER Diagram for the project
 
 = Introduction =
 
