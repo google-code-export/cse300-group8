@@ -36,10 +36,15 @@ if (!isset($_SESSION['userid'] )) {
     </head>
     
     <body >
-     <div class="bdy">
-     <div id="bg3">
    
-      <form  id="login"  action="login.php" method="post">
+    <div id="new-logo"></div>
+     
+  <div class="homebox">
+   <iframe class="home-video" width="560" height="315" src="http://www.youtube.com/embed/j06wDNruGIw?rel=0" frameborder="0" allowfullscreen></iframe>
+  
+    
+     <form  id="login"  action="login.php" method="post">
+      <legend>Log In</legend>
   <input  id="xlInput" class="inp"  name="email" size="220" type="text" placeholder="Email Id" /><br/>
   
    <input  id="xlInput" class="inp" type="password" name="pass" size="220" type="text" placeholder="Password"/><br/>
@@ -47,22 +52,10 @@ if (!isset($_SESSION['userid'] )) {
   <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer">Login </button>
   <a href="#">Forgot your password?</a><br/>
 </form>
- </div>
-   </div>
-    
-    <div id="bg2">
+ 
+  
     </div>
-    <div id="bg1">
-    </div>
-   <div id="logo-side">
-   </div>
-    <div id="logo">
-   </div>
-  <!-- <a href="#">
- <div class="ad_login">
- <strong>Admin Login</strong>
- </div>
- </a>-->
+   
       <footer class="main">
       <a href="#">Help </a>. <a href="#">About</a> . <a href="#">Team </a>. <a href="#">T&C </a>
       </footer>
@@ -79,6 +72,10 @@ if (!isset($_SESSION['userid'] )) {
 	else if ($_SESSION['role']=="admin"){
 	header ("Location:admin.php");
 	}
+	else if ($_SESSION['role']=="director")
+{
+	header ('LOCATION:director.php');
+}
 	
 	?>
 	
