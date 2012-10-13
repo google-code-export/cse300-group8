@@ -72,11 +72,13 @@ box-shadow:         7px 7px 5px rgba(50, 50, 50, 0.75);
 }
 #login
 {
-	position:relative;
-	width:100%;
+	position:absolute;	
+	top:0px;
+	left:650px;
+	width:300px;
 	padding-bottom:10px;
 	padding-top:10px;
-	padding-left:10px;
+	
 	padding-right:10px;
 }
 
@@ -85,7 +87,7 @@ footer
 	position:absolute;
 	text-decoration:none;
 	font-size:16px;
-	color:#FFF;
+	color:#09C;
 	top:90%;
 	left:57%;
 	width:25%;
@@ -94,12 +96,12 @@ footer
 .main a
 {
 	text-decoration:none;
-	color:#FFF;
+	color:#09C;
 }
 .main a:hover
 {
 	text-decoration:none;
-	color:#FFF;
+	color:#09C;
 }
 .inp
 {
@@ -202,6 +204,14 @@ footer
 	top:220px;
 	left:50px;
 }
+#bills2
+{
+	position:relative;
+	padding-right:3px;
+	float:right;
+	top:220px;
+	left:0px;
+}
 #add_faculty
 {
 	
@@ -280,12 +290,19 @@ footer
 	left:300px;
 	width:60%;
 }
+.leave-body3
+{
+	position:relative;
+	top:80px;
+	left:300px;
+	width:50%;
+}
 .leave-body
 {
 	position:relative;
 	top:80px;
 	left:300px;
-	width:40%;
+	width:30%;
 }
 .body a:hover
 {
@@ -407,7 +424,7 @@ width:100px;
 .counter
 {
 	position:fixed;
-	left:70%;
+	left:60%;
 	border-left:1px #333 solid;
 	width:50%;
 	height:100%;
@@ -419,11 +436,72 @@ width:100px;
 	position:relative;
 	top:200px;
 	width:80%;
-	left:10%;
+	left:0%;
 }
 @font-face {
   font-family: 'Kohinoor';
   src: local('Kohinoor'), local('Kohinoor'),
     url("../fonts/Kohinoor-Bold.otf") format("opentype");
     
+}
+.nav-box
+{
+	position:fixed;
+	left:85%;
+	top:220px;
+	width:20%;
+	height:150px;
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, .52);
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .52);
+	-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+.admin-box-con
+{
+	position:relative;
+	padding:10px;
+}
+.admin-box-con a
+{
+	color:#333;
+}
+#new-logo
+{
+	background:url(../favicon.png) no-repeat;
+	position:absolute;
+	left:10%;
+	top:0px;
+	height:150px;
+	width:150px;
+	display:block;
+	padding-bottom:10px;
+	
+
+}
+.home-video
+{
+	position:relative;
+	
+	top:0px;
+	
+}
+.homebox
+{
+position:fixed;
+	left:10%;
+	top:200px;
+	width:800px;	
+}
+.icon-address
+{
+	background:url(../images/location.png) no-repeat;
+	height:32px;
+	width:32px;
+}
+.icon-phone
+{
+	background:url(../images/phone.png) no-repeat;
+	height:32px;
+	width:32px;
 }
