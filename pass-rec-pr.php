@@ -21,14 +21,17 @@ $mail             = new PHPMailer();
  
 $body             = "Hi $username,
 <br>
-Here is the link to reset your password.
+There was recently a request to change the password on your account.<br>
+If you requested this password change, please set a new password by following the link below:
+<br>
 http://14.139.56.179:8088/pass-recovery.php?hash=$hash&id=$u_id
+<br>
+If you don't want to change your password, just ignore this message.<br>
 
+Thanks,<br>
 
-Thanks,
-
-_______________
-Thanks,
+_______________<br>
+Thanks,<br>
 SoftCopy Team
 ";
  
