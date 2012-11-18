@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include_once('cxn.php');
-
+error_reporting(E_ERROR | E_PARSE);
 if (!isset($_SESSION['userid'])) {
 	header ('Location:index.php');
        // die( "You need to login to view this page!! ");
@@ -46,29 +46,77 @@ else if ($_SESSION['role']=="admin") {
 }
 setInterval( "update()", 5000 );
   </script>   
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.watermarkinput.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+$(".search").keyup(function() 
+{
+var searchbox = $(this).val();
+var dataString = 'searchword='+ searchbox;
+
+if(searchbox=='')
+{
+}
+else
+{
+
+$.ajax({
+type: "POST",
+url: "search.php",
+data: dataString,
+cache: false,
+success: function(html)
+{
+
+$("#display").html(html).show();
+  
+  
+  }
+
+
+
+
+});
+}return false;    
+
+
+});
+});
+
+jQuery(function($){
+   $("#searchbox").Watermark("Search");
+   });
+</script>
+<style type="text/css">
+
+</style>
+
     </head>
 <body onLoad="update();">
 <div class="left_menu">
-<div id="leave"><a href="#"><b>Leaves</b></a></div>
-<!--<div id="rim"><a href="#"><b>Reimbursements</b></a></div>-->
-<div id="bills"><a href="#"><b>Archive</b></a></div>
-<div id="add_faculty"><a href="#"><b>Add Faculty</b></a></div>
+<!--<div id="leave"><a href="#"><b>Leaves</b></a></div>
+<div id="rim"><a href="#"><b>Reimbursements</b></a></div>-->
+<div id="bills2"><a data-toggle="modal"  href="#search" title="Click to search faculty archives"><b>Archive</b></a></div>
+<div id="add_faculty"><a data-toggle="modal"  href="#addfaculty" title="Click to add a faculty"><b>Add Faculty</b></a></div>
 <div id="logout_a"><a href="logout.php"><b>Logout</b></a></div>
-<?
+<?php
 $id=$_SESSION['userid']; 
 $qry = "SELECT * FROM users WHERE id='$id'";
   $result = mysql_query($qry);
    $info=mysql_fetch_assoc($result);?>
 <div id="logo2"></div></div>
 <div class="info_bar">
-<div id="name" style="font-family:'Kohinoor Bold';"><? echo $info['name']; ?> <br/><br/> <? echo "<div style='font-size:16px;'>".$info['role']." </div>"; ?></div>
+<div id="name" style="font-family:'Kohinoor Bold';"><?php echo $info['name']; ?> <br/> <?php echo "<div style='font-size:15px;'>".$info['role']." </div>"; ?></div>
 <div class="dp_area">
 <a data-toggle="modal"  href="#addpic" title="Click to add/change your pic">
-<? if(!$info['pic'])
+<?php if(!$info['pic'])
 {?>
 <img src="pics/dp.png"/>
 
-<? }
+<?php }
 else
 {
 	echo "<img src='pics/".$info['pic']."' />";
@@ -77,9 +125,13 @@ else
 </div>
 <a data-toggle="modal"  href="#infoEdit" title="Change your info">
 <div id="info">
-
-<? echo $info['address']."<br/>".$info['phone']."<br/>"; ?>
-
+<!--<div class="icon-address"></div>-->
+<img src="images/location.png" width="16" height="16">
+<?php echo $info['address'];?>
+<br/>
+<!--<div class="icon-phone"></div>-->
+<img src="images/phone.png" width="16" height="16">
+<?php echo $info['phone']; ?>
 </div></a>
 </div>
 
@@ -99,12 +151,71 @@ else
             
             <div class="modal-body">
               <center><p><b>Add/Change your photo</b> </p></center>
- <form  action="addpic.php" method="post">
+ <form  action="addpic.php" method="post" enctype="multipart/form-data">
        <input name="photo" type="file" size="10" />
             <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer">Add this photo </button>
 </form>
           </div>
           </div>
+          
+          
+          
+          
+     <div id="addfaculty" class="modal hide fade" style="display: none; ">
+            
+              <button class="close" data-dismiss="modal">×</button>
+           
+            
+            <div class="modal-body">
+              <center><p><b>Add a faculty</b> </p></center>
+ <form  action="add-faculty.php" method="post">
+ Name <br/>
+<textarea  id="expand" class="txtarea" name='name' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
+Email <br/>
+<textarea  id="expand" class="txtarea" name='email' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
+Password <br/>
+<textarea  id="expand" class="txtarea" name='password' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
+Address <br/>
+  <textarea  id="expand" class="txtarea" name='address' rows='5' cols='1000' wrap="physical" ></textarea> <br/>
+  Phone No. <br/>
+  <textarea  id="expand" class="txtarea" name='phone' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
+ Marital Status <br/>
+<select name="m_status">
+ <option>
+   Single
+  </option>
+  
+  <option>
+ Married 
+  </option>
+ </select>
+  <br/>
+  No. of children <br/>
+  <textarea  id="expand" class="txtarea" name='child' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
+   
+      
+            <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer">Add Faculty </button>
+</form>
+          </div>
+          </div>
+
+
+<div id="search" class="modal hide fade" style="display: none; ">
+            
+              <button class="close" data-dismiss="modal">×</button>
+           
+            
+            <div class="modal-body">
+              <center><p><b>Search a faculty for records</b> </p></center>
+ <div style=" width:100%; " >
+<input type="text" style=" width:100%; " class="search" id="searchbox" /><br />
+<div id="display">
+</div>
+
+</div>
+
+          </div>
+          </div>          
           
           <div id="infoEdit" class="modal hide fade" style="display: none; ">
             
@@ -115,20 +226,20 @@ else
               <center><p><b>Edit Info</b> </p></center>
  <form  action="editinfo.php" method="post">
 Name <br/>
-<textarea  id="expand" class="txtarea" name='name' rows='1' cols='1000' wrap="physical" ><? echo $info['name'];?></textarea> <br/>
+<textarea  id="expand" class="txtarea" name='name' rows='1' cols='1000' wrap="physical" ><?php echo $info['name'];?></textarea> <br/>
 Address <br/>
-  <textarea  id="expand" class="txtarea" name='address' rows='5' cols='1000' wrap="physical" ><? echo $info['address'];?></textarea> <br/>
+  <textarea  id="expand" class="txtarea" name='address' rows='5' cols='1000' wrap="physical" ><?php echo $info['address'];?></textarea> <br/>
   Phone No. <br/>
-  <textarea  id="expand" class="txtarea" name='phone' rows='1' cols='1000' wrap="physical" ><? echo $info['phone'];?></textarea> <br/>
+  <textarea  id="expand" class="txtarea" name='phone' rows='1' cols='1000' wrap="physical" ><?php echo $info['phone'];?></textarea> <br/>
  Marital Status <br/>
    <select name="m_status">
  
   <option>
-   <?  echo $info['m_status']; ?>
+   <?php  echo $info['m_status']; ?>
   </option>
   
   <option>
-  <?  if($info['m_status']=="married"){ 
+  <?php  if($info['m_status']=="married"){ 
    echo "single"; }
   else if($info['m_status']=="single")
   echo "married"; ?>
@@ -136,7 +247,7 @@ Address <br/>
  </select>
   <br/>
   No. of children <br/>
-  <textarea  id="expand" class="txtarea" name='child' rows='1' cols='1000' wrap="physical" ><? echo $info['child'];?></textarea> <br/>
+  <textarea  id="expand" class="txtarea" name='child' rows='1' cols='1000' wrap="physical" ><?php echo $info['child'];?></textarea> <br/>
   <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer"> Save Changes </button>
   <br/><a href="editpass.php">Change your password</a>
 </form>
@@ -146,30 +257,36 @@ Address <br/>
           </div>
           </div>
           
-       <?
-	   $qr2="select * from `leave` where (status=0) order by time ASC";
+       <?php
+	   $qr2="select * from `leave` where (status=0 or status=1 or status=2) order by time ASC";
 $r1=mysql_query($qr2);
 echo mysql_error();    
-	
+	$cnt=0;
 	while($nt=mysql_fetch_array($r1))
 	{
 		$lid=$nt['l_id'];
-	}
-	?>   
-           <div id="addcom" class="modal hide fade" style="display: none; ">
+		//$cnt++;?>
+         <div id="addcom<?php echo $lid; ?>" class="modal hide fade" style="display: none; ">
             
               <button class="close" data-dismiss="modal">×</button>
            
             
             <div class="modal-body">
               <center><p><b>Add comment</b> </p></center>
- <form  action="addcom_a.php?lid=<? echo $lid; ?>" method="post">
-     <textarea value="" name="comment_a" rows="3"></textarea><br/>
+ <form  action="addcom_a.php?lid=<?php echo $lid; ?>" method="post">
+     <textarea value="" name="comment_a" rows="3" style="width:100%;"><?php echo $nt['comment_a']; ?></textarea><br/>
             <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer">Add comment </button><br/>
 </form>
           </div>
           </div>
 
+        
+        <?php
+	}
+	
+	?>   
+    
+          
 
       <script type="text/javascript" src="js/bootstrap-button.js"></script>
   
@@ -228,7 +345,7 @@ function calcBusinessDays(date1, date2) {         // input given as Date objects
 </script>
 </body>
 </html>
-<? } 
+<?php } 
 else if ($_SESSION['role']=="faculty")
 {
 	header ('LOCATION:faculty.php');

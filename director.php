@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('cxn.php');
 
@@ -53,21 +53,21 @@ setInterval( "update()", 5000 );
 <div id="rim"><a href="#"><b>Reimbursements</b></a></div>
 <div id="bills"><a href="#"><b>Archive</b></a></div>-->
 <div id="logout_d"><a href="logout.php"><b>Logout</b></a></div>
-<?
+<?php
 $id=$_SESSION['userid']; 
 $qry = "SELECT * FROM users WHERE id='$id'";
   $result = mysql_query($qry);
    $info=mysql_fetch_assoc($result);?>
 <div id="logo2"></div></div>
 <div class="info_bar">
-<div id="name" style="font-family:'Kohinoor Bold';"><? echo $info['name']; ?> <br/><br/> <? echo "<div style='font-size:16px;'>".$info['role']." </div>"; ?></div>
+<div id="name" style="font-family:'Kohinoor Bold';"><?php echo $info['name']; ?> <br/> <?php echo "<div style='font-size:15px;'>".$info['role']." </div>"; ?></div>
 <div class="dp_area">
 <a data-toggle="modal"  href="#addpic" title="Click to add/change your pic">
-<? if(!$info['pic'])
+<?php if(!$info['pic'])
 {?>
 <img src="pics/dp.png"/>
 
-<? }
+<?php }
 else
 {
 	echo "<img src='pics/".$info['pic']."' />";
@@ -77,7 +77,13 @@ else
 <a data-toggle="modal"  href="#infoEdit" title="Change your info">
 <div id="info">
 
-<? echo $info['address']."<br/>".$info['phone']."<br/>"; ?>
+<!--<div class="icon-address"></div>-->
+<img src="images/location.png" width="16" height="16">
+<?php echo $info['address'];?>
+<br/>
+<!--<div class="icon-phone"></div>-->
+<img src="images/phone.png" width="16" height="16">
+<?php echo $info['phone']; ?>
 
 </div></a>
 </div>
@@ -87,30 +93,33 @@ else
 
 </div>
      
-       <?
+       <?php
 	   $qr2="select * from `leave` where (status=3) order by time ASC";
 $r1=mysql_query($qr2);
 echo mysql_error();    
 	
 	while($nt=mysql_fetch_array($r1))
 	{
-		$lid=$nt['l_id'];
-	}
-	?>   
-
- <div id="addcom" class="modal hide fade" style="display: none; ">
+		$lid=$nt['l_id'];?>
+        <div id="addcom<?php echo $lid; ?>" class="modal hide fade" style="display: none; ">
             
               <button class="close" data-dismiss="modal">×</button>
            
             
             <div class="modal-body">
               <center><p><b>Add comment</b> </p></center>
- <form  action="addcom_d.php?lid=<? echo $lid; ?>" method="post">
-     <textarea value="" name="comment_d" rows="3"></textarea><br/>
+ <form  action="addcom_d.php?lid=<?php echo $lid; ?>" method="post">
+     <textarea value="" name="comment_d" rows="3" style="width:100%;"><?php echo $nt['comment_d']; ?></textarea><br/>
             <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer">Add comment </button><br/>
 </form>
           </div>
           </div>
+        
+        <?php
+	}
+	?>   
+
+ 
 
 
        
@@ -122,7 +131,7 @@ echo mysql_error();
             
             <div class="modal-body">
               <center><p><b>Add/Change your photo</b> </p></center>
- <form  action="addpic.php" method="post">
+ <form  action="addpic.php" method="post" enctype="multipart/form-data">
        <input name="photo" type="file" size="10" />
             <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer">Add this photo </button>
 </form>
@@ -138,20 +147,20 @@ echo mysql_error();
               <center><p><b>Edit Info</b> </p></center>
  <form  action="editinfo.php" method="post">
 Name <br/>
-<textarea  id="expand" class="txtarea" name='name' rows='1' cols='1000' wrap="physical" ><? echo $info['name'];?></textarea> <br/>
+<textarea  id="expand" class="txtarea" name='name' rows='1' cols='1000' wrap="physical" ><?php echo $info['name'];?></textarea> <br/>
 Address <br/>
-  <textarea  id="expand" class="txtarea" name='address' rows='5' cols='1000' wrap="physical" ><? echo $info['address'];?></textarea> <br/>
+  <textarea  id="expand" class="txtarea" name='address' rows='5' cols='1000' wrap="physical" ><?php echo $info['address'];?></textarea> <br/>
   Phone No. <br/>
-  <textarea  id="expand" class="txtarea" name='phone' rows='1' cols='1000' wrap="physical" ><? echo $info['phone'];?></textarea> <br/>
+  <textarea  id="expand" class="txtarea" name='phone' rows='1' cols='1000' wrap="physical" ><?php echo $info['phone'];?></textarea> <br/>
  Marital Status <br/>
    <select name="m_status">
  
   <option>
-   <?  echo $info['m_status']; ?>
+   <?php  echo $info['m_status']; ?>
   </option>
   
   <option>
-  <?  if($info['m_status']=="married"){ 
+  <?php  if($info['m_status']=="married"){ 
    echo "single"; }
   else if($info['m_status']=="single")
   echo "married"; ?>
@@ -159,7 +168,7 @@ Address <br/>
  </select>
   <br/>
   No. of children <br/>
-  <textarea  id="expand" class="txtarea" name='child' rows='1' cols='1000' wrap="physical" ><? echo $info['child'];?></textarea> <br/>
+  <textarea  id="expand" class="txtarea" name='child' rows='1' cols='1000' wrap="physical" ><?php echo $info['child'];?></textarea> <br/>
   <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer"> Save Changes </button>
   <br/><a href="editpass.php">Change your password</a>
 </form>
@@ -227,7 +236,7 @@ function calcBusinessDays(date1, date2) {         // input given as Date objects
 </script>
 </body>
 </html>
-<? } 
+<?php } 
 else if ($_SESSION['role']=="faculty")
 {
 	header ('LOCATION:faculty.php');
