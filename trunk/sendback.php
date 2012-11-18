@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('cxn.php');
 session_start();

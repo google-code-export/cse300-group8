@@ -101,7 +101,7 @@ var iWeeks, iDateDiff, iAdjust = 0;
  {
 Date3 = document.getElementById('Date3').value;
 Date4 = document.getElementById('Date4').value;
-alert (Date3);
+//alert (Date3);
 dDate1=new Date (Date3);
 dDate2=new Date(Date4);
 //document.getElementById('nod').value =date1;
@@ -182,7 +182,8 @@ document.getElementById('nod').value =dDate1;
     $('#body').load('faculty_f.php');
 }
 setInterval( "update()", 5000 );
-  </script>   
+  </script> 
+  <script src="gen_validatorv4.js" type="text/javascript"></script>  
     </head>
 <body onLoad="update();">
 <div class="left_menu">
@@ -197,12 +198,12 @@ $qry = "SELECT * FROM users WHERE id='$id'";
    $info=mysql_fetch_assoc($result);?>
 <div id="logo2"></div></div>
 <div class="info_bar">
-<div id="name" style="font-family:'Kohinoor Bold';"><?php echo $info['name']; ?> <br/><br/> <?php echo "<div style='font-size:16px;'>".$info['role']." </div>"; ?></div>
+<div id="name" style="font-family:'Kohinoor Bold';"><?php echo $info['name']; ?> <br/> <?php echo "<div style='font-size:15px;'>".$info['role']." </div>"; ?></div>
 <div class="dp_area">
 <a data-toggle="modal"  href="#addpic" title="Click to add/change your pic">
 <?php if(!$info['pic'])
 {?>
-<img src="pics/dp.png"  style=" position:relative; top:6px;"/>
+<img src="pics/dp.png"  style=" position:relative; top:0px;"/>
 
 <?php }
 else
@@ -213,10 +214,12 @@ else
 </div>
 <a data-toggle="modal"  href="#infoEdit" title="Change your info">
 <div id="info">
-<div class="icon-address"></div>
+<!--<div class="icon-address"></div>-->
+<img src="images/location.png" width="16" height="16">
 <?php echo $info['address'];?>
 <br/>
-<div class="icon-phone"></div>
+<!--<div class="icon-phone"></div>-->
+<img src="images/phone.png" width="16" height="16">
 <?php echo $info['phone']; ?>
 
 </div></a>
@@ -236,37 +239,48 @@ else
             <div class="modal-body">
               <center><p><b>Submit leave application</b> </p></center>
 
-        <form enctype="multipart/form-data" action="addleave.php" method="post">
+        <form enctype="multipart/form-data" action="addleave.php" method="post" id="myform">
 From (mm/dd/yy):<br/>
 <!-- <textarea id="inputDate"  name='from' rows='1' cols='500' wrap="physical" placeholder="12/12/12" ></textarea>-->
- <input class="d1" id="Date" name="from" type="date" value="" > <br/>
+ <div id='myform_from_errorloc' style="color:red;"></div>
+ <input class="d1" id="Date" name="from" type="date" value="" style="width:100%;"> <br/>
 To (mm/dd/yy):<br/>
- <input class="d2" id="Date2" name="to" type="date" value="" onChange="weekdayc();" > <br/> 
+ <div id='myform_to_errorloc' style="color:red;"></div>
+ <input class="d2" id="Date2" name="to" type="date" value="" style="width:100%;" onChange="weekdayc();" > <br/> 
  
 No. of days <br/>
+<div id='myform_days_errorloc' style="color:red;"></div>
 <input  id="nod"  name='days' rows='1' cols='1000' wrap="physical" value="" /> <br/>
 Type of leave <br/>
-<select name="type" id="type" onchange='Checkfin(this.value);'> <option value="Paid Leave">Paid Leave</option> <option  value="Work Leave">Work Leave</option> <option value="Unpaid Leave">Unpaid Leave</option> <option value="Vacation Leave">Vacation Leave</option> <option value="Casual Leave">Casual Leave</option><option value="Sabbatical Leave">Sabbatical Leave</option></select><br/>
+<select style="width:100%;" name="type" id="type" onchange='Checkfin(this.value);'> <option value="Paid Leave">Paid Leave</option> <option  value="Work Leave">Work Leave</option> <option value="Unpaid Leave">Unpaid Leave</option> <option value="Vacation Leave">Vacation Leave</option> <option value="Casual Leave">Casual Leave</option><option value="Sabbatical Leave">Sabbatical Leave</option></select><br/>
 
 Reason<br/>
-<textarea name="reason" rows="3"></textarea><br/>
+<div id='myform_reason_errorloc' style="color:red;"></div>
+<textarea style="width:100%;" name="reason" rows="3"></textarea><br/>
 Number of Classes Missed<br/>
-<textarea name="n_cls" rows="1"></textarea><br/>
+<div id='myform_n_cls_errorloc' style="color:red;"></div>
+<textarea  name="n_cls" rows="1" ></textarea><br/>
+
 
 <div id="fin" style="display:none;">
 Source of Financial Support<br/>
-<select name='finsup' id="finsup"  value='' onchange='Checksource(this.value);'><option value="Institute">Institute</option><option value="PDA">PDA</option><option value="Project Number">Project Number</option><option value="Other">Other</option></select><br/>
+<select style="width:100%;" name='finsup' id="finsup"  value='' onchange='Checksource(this.value);'><option value="Institute">Institute</option><option value="PDA">PDA</option><option value="Project Number">Project Number</option><option value="Other">Other</option></select><br/>
 
-Attach a file: <input type="file" name="file" value=""><br/>
+Attach file/s: <br>
+<input type="file" name="file1" /> <br/>
+<input type="file" name="file2" /> <br/>
+<input type="file" name="file3" /> <br/>
+<!--Attach a file: <input type="file" name="file[]" value=""><br/>
+Attach a file: <input type="file" name="file[]" value=""><br/>-->
 Approximate expenses for the travel<br/>
-<textarea name='amount' rows='1' value=""></textarea><br/>
+<textarea style="width:100%;" name='amount' rows='1' value=""></textarea><br/>
 <div id="cb" style="display:none;">
-<input type='checkbox' name='agree' value='1'  /> I have checked that in my PDA/Project there are sufficient funds under suitable budget head for this travel.</div><br />
+<input style="width:100%;" type='checkbox' name='agree' value='1'  /> I have checked that in my PDA/Project there are sufficient funds under suitable budget head for this travel.</div><br />
 </div>
 Destination<br/>
-<textarea name="city" rows="1" placeholder="City"></textarea><textarea name="country" rows="1" placeholder="Country"></textarea><br/>
+<textarea style="width:100%;"name="city" rows="1" placeholder="City"></textarea><textarea style="width:100%;" name="country" rows="1" placeholder="Country"></textarea><br/>
 Arrangement of classes missed: <br/>
-<textarea name="arrange" rows="3" ></textarea><br/>
+<textarea style="width:100%;" name="arrange" rows="3" ></textarea><br/>
 
 
 
@@ -278,7 +292,18 @@ Arrangement of classes missed: <br/>
 
           </div>
           </div>
+<script  type="text/javascript">
+ var frmvalidator = new Validator("myform");
+ frmvalidator.addValidation("n_cls","req","Please enter Number of classes missed");
+ frmvalidator.addValidation("days","req","Please enter Number of days");
+ frmvalidator.addValidation("reason","req","Please give a reason");
+ frmvalidator.addValidation("from","req","Please pick a date");
+ frmvalidator.addValidation("to","req","Please pick a date");
+ frmvalidator.EnableOnPageErrorDisplay();
+frmvalidator.EnableMsgsTogether();
+ 
 
+</script>
 
      <div id="addpic" class="modal hide fade" style="display: none; ">
             
@@ -316,10 +341,10 @@ Address <br/>
   </option>
   
   <option>
-  <?php  if($info['m_status']=="married"){ 
+  <?php  if($info['m_status']==="married"){
    echo "single"; }
-  else if($info['m_status']=="single")
-  echo "married"; ?>
+   else if($info['m_status']==="single"){
+  echo "married"; }?>
   </option>
  </select>
   <br/>
@@ -391,6 +416,22 @@ Arrangement of classes missed: <br/>
   <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer"> Re-submit </button>
   
 </form>
+           
+          </div>
+          </div>
+
+<div id="delete<?php echo $lid; ?>" class="modal hide fade" style="display: none; ">
+            
+              <button class="close" data-dismiss="modal">×</button>
+           
+            
+            <div class="modal-body">
+              <center><p><b>Do you want to delete this application?</b> </p></center>
+              <center>
+                <a href="delete.php?lid=<?php echo $lid; ?>" class="btn btn-primary">Yes</a>
+   <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</a>
+</center>
+                  
            
           </div>
           </div>

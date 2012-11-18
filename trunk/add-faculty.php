@@ -27,7 +27,7 @@ echo mysql_error();
 		$c_id=$nt['id'];
 		
 	}
-	mysql_query("inset into counter (id) VALUES ('$c_id')");
+	mysql_query("INSERT INTO `counter` (id) VALUES ('$c_id')");
 $to = $email;
 $mail             = new PHPMailer();
  
@@ -37,6 +37,7 @@ Use fllowing credentials to login:
 <br>
 Email Id: $email <br>
 Password: $password_raw <br>
+You can change your password from your dashboard after logging in. <br>
 _______________ <br>
 Thanks, <br>
 SoftCopy Team

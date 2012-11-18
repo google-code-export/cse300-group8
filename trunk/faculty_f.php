@@ -17,11 +17,30 @@ echo mysql_error();
 	
 	while($nt=mysql_fetch_array($r1))
 	{
-	?>
-   <div id="l-body"> <b>Leave from <?php echo $nt['start'];?> to <?php echo $nt['end']; ?> (applied on <?php echo $nt['time']; ?>)<br/>
+
+?><div id="<?php if ($nt['status']==5)
+echo "l-body-del";
+else
+echo "l-body";
+
+?>"> 
+    <b>Leave from <?php echo $nt['start'];?> to <?php echo $nt['end']; ?> (applied on <?php echo $nt['time']; ?>)<br/>
     for <?php echo $nt['no_days'];?> days</b><br/>
     <b> Type: </b> <?php echo $nt['type']; ?><br/>
     Reason being "<?php echo $nt['reason']; ?>" <br/>
+<b>
+     <?php
+if (($nt['file1']!="")||($nt['file2']!="")||($nt['file3']!=""))
+{
+  echo "Download File/s";
+  ?>
+  <a target="_blank" href="files/<?php echo $nt['id']; ?>/<?php echo $nt['file1']; ?>"><?php echo $nt['file1']; ?></a>
+  <a target="_blank" href="files/<?php echo $nt['id']; ?>/<?php echo $nt['file2']; ?>"><?php echo $nt['file2']; ?></a>
+  <a target="_blank" href="files/<?php echo $nt['id']; ?>/<?php echo $nt['file3']; ?>"><?php echo $nt['file3']; ?></a>
+  <?php
+}?>
+</b>
+
      <?php
 	
 	if ($nt['comment_a']!='')
@@ -41,7 +60,13 @@ echo mysql_error();
     <br/><a data-toggle="modal"  href="#modify<?php echo $nt['l_id']; ?>" title="Modify Leave">Edit your leave</a>
     <?php
 	}
+  if ($nt['status']!=5)
+  { ?>
+    <br/><a data-toggle="modal"  href="#delete<?php echo $nt['l_id']; ?>" title="Delete Leave">Delete this leave</a>
+    <?php
+  }
     ?>
+     
     </div>
     <div class="<?php if ($nt['status']==0) {echo "pending";
 	}

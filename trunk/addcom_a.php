@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('cxn.php');
 $comment=$_POST['comment_a'];

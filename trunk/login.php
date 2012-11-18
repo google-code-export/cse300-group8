@@ -17,6 +17,11 @@ $email=$_POST['email'];
 	  $_SESSION['role'] = $member['role'];
     //Write session to disc
     session_write_close();
+    if (isset($_POST['remember'])){
+    $expire=time()+60*60*24*30*12;
+setcookie("userid", $member['id'], $expire);
+setcookie("role", $member['role'], $expire);
+}
 	//session_register("password");
 	//session_register("id");
 if ($_SESSION['role']=="faculty"){
@@ -24,6 +29,9 @@ if ($_SESSION['role']=="faculty"){
 	}
 	else if ($_SESSION['role']=="admin"){
 	header ("Location:admin.php");
+	}
+	else if ($_SESSION['role']=="director"){
+	header ("Location:director.php");
 	}
  
    
