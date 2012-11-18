@@ -33,7 +33,7 @@ $mail             = new PHPMailer();
  
 $body             = "Hi $name,
 Your account on Leave Desk has been created by your admin. 
-Use fllowing credentials to login:
+Use following credentials to login:
 <br>
 Email Id: $email <br>
 Password: $password_raw <br>
