@@ -93,7 +93,7 @@ jQuery(function($){
 <div class="left_menu">
 <!--<div id="leave"><a href="#"><b>Leaves</b></a></div>
 <div id="rim"><a href="#"><b>Reimbursements</b></a></div>-->
-<div  style="top:200px; position:relative; left:70px;"><a href="admin.php">Go Back</a></div>
+<!--<div  style="top:200px; position:relative; left:70px;"><a href="admin.php">Go Back</a></div>-->
 <div id="bills2"><a data-toggle="modal"  href="#search" title="Click to search faculty archives"><b>Archive</b></a></div>
 <div id="add_faculty"><a data-toggle="modal"  href="#addfaculty" title="Click to add a faculty"><b>Add Faculty</b></a></div>
 <div id="logout_a"><a href="logout.php"><b>Logout</b></a></div>
