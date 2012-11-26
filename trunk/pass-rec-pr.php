@@ -67,7 +67,7 @@ $add_hash=mysql_query($qry2);
 <div class="common" style="position:absolute; top:100px; left:300px;">
 
 <?php 
-die('The mail has been sent, check your mail.');
+die('The mail has been sent, check your mail [also check your spam folder.]. ');
 }
 else
 {?>
