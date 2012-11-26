@@ -224,7 +224,17 @@ else
 
 </div></a>
 </div>
-
+<div style="position:relative; top:80px; width:40%; left:20%;">
+<?php
+if (isset($_GET['err']))
+{
+  if ($_GET['err']=="casual")
+  {
+    echo "<h3>Your casual leave application can not be submitted because you are exceeding the limit.</h3>";
+  }
+}
+?>
+</div>
 
 <div class="body" id="body">
 
@@ -239,15 +249,7 @@ else
             <div class="modal-body">
               <center><p><b>Submit leave application</b> </p></center>
 
-<?php
-if (isset($_GET['err']))
-{
-  if ($_GET['err']=="casual")
-  {
-    echo "<h3>Your casual leave application can not be submitted because you are exceeding the limit.</h3>";
-  }
-}
-?>
+
         <form enctype="multipart/form-data" action="addleave.php" method="post" id="myform">
 From (mm/dd/yy):<br/>
 <!-- <textarea id="inputDate"  name='from' rows='1' cols='500' wrap="physical" placeholder="12/12/12" ></textarea>-->
