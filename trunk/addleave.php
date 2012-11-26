@@ -91,7 +91,7 @@ $file3=($_FILES['file3']['name']);
 
 mysql_query("INSERT INTO `leave` (id,start,end,no_days,type,fin_support,amount,reason,c_miss,city,country,time,agree, arrangement, file1,file2,file3)  VALUES ('$id','$from','$to','$days','$type','$f_supp1','$amount','$reason','$n_cls','$city','$country',now(),'$agree','$arrange', '$file','$file2','$file3')") ; 
 
-//header ('LOCATION:faculty.php');
+header ('LOCATION:faculty.php');
 
 
 // echo $member['name'];
