@@ -252,7 +252,10 @@ No. of days <br/>
 <div id='myform_days_errorloc' style="color:red;"></div>
 <input  id="nod"  name='days' rows='1' cols='1000' wrap="physical" value="" /> <br/>
 Type of leave <br/>
-<select style="width:100%;" name="type" id="type" onchange='Checkfin(this.value);'> <option value="Paid Leave">Paid Leave</option> <option  value="Work Leave">Work Leave</option> <option value="Unpaid Leave">Unpaid Leave</option> <option value="Vacation Leave">Vacation Leave</option> <option value="Casual Leave">Casual Leave</option><option value="Sabbatical Leave">Sabbatical Leave</option></select><br/>
+<select style="width:100%;" name="type" id="type" onchange='Checkfin(this.value);'> <option value="Paid Leave">Paid Leave</option> <option  value="Work Leave">Work Leave</option> <option value="Unpaid Leave">Unpaid Leave</option> <option value="Vacation Leave">Vacation Leave</option>
+ 
+ <option value="Casual Leave">Casual Leave</option>
+ <option value="Sabbatical Leave">Sabbatical Leave</option></select><br/>
 
 Reason<br/>
 <div id='myform_reason_errorloc' style="color:red;"></div>
