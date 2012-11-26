@@ -42,6 +42,23 @@ else if ($f_supp=="Other")
 }
 $i=0;
 
+if ($_POST['type']=="Casual leave")
+{
+	$check = mysql_query("SELECT casual FROM counter WHERE id = '$id'") 
+
+or die(mysql_error());
+
+ $check2 = mysql_num_rows($check);
+
+
+
+ //if the name exists it gives an error
+
+ if ($days > $check2) {
+header("LOCATION:faculty.php?err=casual");
+
+ }
+}
 //echo $type,$to,$days,$from;
 $file='';
 $file2='';
