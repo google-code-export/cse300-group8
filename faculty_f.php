@@ -1,17 +1,37 @@
 <?php include('cxn.php');
 session_start();
+$page=$_GET['page'];
+
+$page2=$page+3;
+$pagel=$page2;
+$pagep=$page-4;
+$id=$_SESSION['userid'];
 ?>
 <div class="leave-body">
+  
+ 
 <h1 style="color:#399;"> Leaves</h1>
 <br/>
 <h3><a data-toggle="modal"  href="#addleave">+ | Submit a leave application</a></h3>
 
 <div class="l-notification">
-
+ <?php 
+if ($page!=0){
+  ?>
+<a style="position:relative;  "href="faculty.php?page=<?php echo $pagep; ?>">PREV</a>
+<?php }
+$pqry=mysql_query("select * from `leave` where id='$id' ");
+$totalp=mysql_num_rows($pqry);
+//echo $totalp;
+if ($page2<$totalp){
+?>
+<a style="position:relative; "href="faculty.php?page=<?php echo $pagel; ?>">NEXT</a>
 <?php
+}
 $status=0;
-$id=$_SESSION['userid'];
-$qr2="select * from `leave` where (id='$id') order by time DESC LIMIT 0,10 ";
+
+$qr2="select * from `leave` where (id='$id') order by time DESC LIMIT $page,$page2 ";
+echo $qr2;
 $r1=mysql_query($qr2);
 echo mysql_error();    
 	
