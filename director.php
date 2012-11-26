@@ -58,7 +58,7 @@ $id=$_SESSION['userid'];
 $qry = "SELECT * FROM users WHERE id='$id'";
   $result = mysql_query($qry);
    $info=mysql_fetch_assoc($result);?>
-<div id="logo2"></div></div>
+<a style="position:relative; top:70%; left:10px;" href="index.php"><img src="logo_2.png"/></a></div>
 <div class="info_bar">
 <div id="name" style="font-family:'Kohinoor Bold';"><?php echo $info['name']; ?> <br/> <?php echo "<div style='font-size:15px;'>".$info['role']." </div>"; ?></div>
 <div class="dp_area">
