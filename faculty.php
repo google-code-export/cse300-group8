@@ -176,13 +176,20 @@ document.getElementById('nod').value =dDate1;
 
 }
 </script>
+<?php 
+$page=0;
+if (isset($_GET['page'])){
+$page=$_GET['page'];
+}
+ ?>
   <script>
   function update(){
     // Assuming we have #shoutbox
-    $('#body').load('faculty_f.php');
+    $('#body').load('faculty_f.php?page=<?php echo $page; ?>');
 }
 setInterval( "update()", 5000 );
   </script> 
+ 
   <script src="gen_validatorv4.js" type="text/javascript"></script>  
     </head>
 <body onLoad="update();">
