@@ -15,6 +15,22 @@ $country=$_POST['country'];
 $arrange=$_POST['arrange'];
 $agree=0;
 $dir="files/".$id;
+if ($type=="Casual Leave")
+{
+	$check = mysql_query("SELECT * FROM counter WHERE id = '$id'") ;
+echo $type;
+
+ $check2 = mysql_fetch_assoc($check);
+
+
+
+ //if the name exists it gives an error
+
+ if ($days > $check2['casual']) {
+header("LOCATION:faculty.php?err=casual");
+die ("0");
+ }
+}
 if (is_dir($dir)===false)
 {
 	mkdir($dir);
@@ -42,23 +58,7 @@ else if ($f_supp=="Other")
 }
 $i=0;
 
-if ($_POST['type']=="Casual leave")
-{
-	$check = mysql_query("SELECT casual FROM counter WHERE id = '$id'") 
 
-or die(mysql_error());
-
- $check2 = mysql_num_rows($check);
-
-
-
- //if the name exists it gives an error
-
- if ($days > $check2) {
-header("LOCATION:faculty.php?err=casual");
-
- }
-}
 //echo $type,$to,$days,$from;
 $file='';
 $file2='';
@@ -90,7 +90,8 @@ $file3=($_FILES['file3']['name']);
 //echo $_FILES["file1"]["name"] ." ".$dir." ".$_FILES["file1"]["tmp_name"];
 
 mysql_query("INSERT INTO `leave` (id,start,end,no_days,type,fin_support,amount,reason,c_miss,city,country,time,agree, arrangement, file1,file2,file3)  VALUES ('$id','$from','$to','$days','$type','$f_supp1','$amount','$reason','$n_cls','$city','$country',now(),'$agree','$arrange', '$file','$file2','$file3')") ; 
-header ('LOCATION:faculty.php');
+
+//header ('LOCATION:faculty.php');
 
 
 // echo $member['name'];
