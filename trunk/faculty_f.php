@@ -4,7 +4,7 @@ $page=$_GET['page'];
 
 $page2=$page+3;
 $pagel=$page2;
-$pagep=$page-4;
+$pagep=$page-3;
 $id=$_SESSION['userid'];
 ?>
 <div class="leave-body">
