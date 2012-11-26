@@ -15,6 +15,24 @@ $email=$_POST['email'];
 $password_raw=$_POST['password'];
 $password=md5($_POST['password']);
 
+
+
+ $check = mysql_query("SELECT email FROM users WHERE email = '$email'") 
+
+or die(mysql_error());
+
+ $check2 = mysql_num_rows($check);
+
+
+
+ //if the name exists it gives an error
+
+ if ($check2 != 0) {
+echo "<br/><br/><center><h3> $email is already in use. </h3> </center>";
+
+ }
+ else{
+
 //echo $name.$address.$phone.$child.$password.$email;
 mysql_query("INSERT INTO  `users` (name, email, address, password, role, phone, m_status, child, time) VALUES ('$name', '$email', '$address', '$password', 'faculty' ,'$phone','$m_status', '$child', now())") ; 
 $qr2="select * from `users` where (email='$email')";
@@ -86,5 +104,7 @@ echo "<br/><br/><center><h3> $name has been added as a Faculty on leave desk. </
 
 <?php
 }
+}
 //header ('LOCATION:'.$_SERVER['HTTP_REFERER']);
+
 ?>
