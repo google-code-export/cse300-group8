@@ -31,7 +31,7 @@ if ($page2<$totalp){
 $status=0;
 
 $qr2="select * from `leave` where (id='$id') order by time DESC LIMIT $page,$page2 ";
-echo $qr2;
+
 $r1=mysql_query($qr2);
 echo mysql_error();    
 	
