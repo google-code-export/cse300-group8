@@ -93,7 +93,7 @@ jQuery(function($){
 <style type="text/css">
 
 </style>
-
+ <script src="gen_validatorv4.js" type="text/javascript"></script> 
     </head>
 <body onLoad="update();">
 <div class="left_menu">
@@ -168,12 +168,15 @@ else
             
             <div class="modal-body">
               <center><p><b>Add a faculty</b> </p></center>
- <form  action="add-faculty.php" method="post">
+ <form  action="add-faculty.php" method="post" id="myform">
  Name <br/>
+ <div id='myform_name_errorloc' style="color:red;"></div>
 <textarea  id="expand" class="txtarea" name='name' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
 Email <br/>
+<div id='myform_email_errorloc' style="color:red;"></div>
 <textarea  id="expand" class="txtarea" name='email' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
 Password <br/>
+<div id='myform_password_errorloc' style="color:red;"></div>
 <textarea  id="expand" class="txtarea" name='password' rows='1' cols='1000' wrap="physical" ></textarea> <br/>
 Address <br/>
   <textarea  id="expand" class="txtarea" name='address' rows='5' cols='1000' wrap="physical" ></textarea> <br/>
@@ -196,6 +199,15 @@ Address <br/>
       
             <button type="submit" class="btn btn-primary btn-info " name="submit" value="Login" style="cursor:pointer">Add Faculty </button>
 </form>
+<script  type="text/javascript">
+ var frmvalidator = new Validator("myform");
+ frmvalidator.addValidation("email","req","Please enter your email id");
+  frmvalidator.addValidation("name","req","Please enter your email id");
+ frmvalidator.addValidation("email","email","Please enter valid email id");
+ frmvalidator.addValidation("password","req","Please enter the password");
+  frmvalidator.EnableOnPageErrorDisplay();
+frmvalidator.EnableMsgsTogether();
+ </script>
           </div>
           </div>
 
