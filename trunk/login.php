@@ -40,7 +40,7 @@ if ($_SESSION['role']=="faculty"){
 
 else {
 	
- header("location: index.php");
+ header("location: index.php?err=1&email=$email");
 
 }
   

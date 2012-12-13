@@ -49,8 +49,27 @@ if (!isset($_SESSION['userid'] )) {
     
      <form  id="login"  action="login.php" method="post">
       <legend>Log In</legend>
+      <?php
+if(isset($_GET['err']))
+{
+  ?>
+  <span style="color:red;">You entered wrong email id or password</span>
+  <?php
+}
+      ?>
       <div id='login_email_errorloc' style="color:red;"></div>
+    <?php
+if(isset($_GET['email']))
+{
+  ?>
+ <input  id="xlInput" class="inp"  name="email" size="220" type="text" value="<?php echo $_GET['email']; ?>" placeholder="Email Id" /><br/>
+  
+  <?php
+}
+else {
+    ?>
   <input  id="xlInput" class="inp"  name="email" size="220" type="text" placeholder="Email Id" /><br/>
+  <?php } ?>
   <div id='login_pass_errorloc' style="color:red;"></div>
    <input  id="xlInput" class="inp" type="password" name="pass" size="220" type="text" placeholder="Password"/><br/>
   <input type="checkbox" name="remember"/> Remember Me <br><br>
