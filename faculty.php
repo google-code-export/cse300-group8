@@ -67,7 +67,8 @@ dDate2=new Date(Date2);
 //calcBusinessDays(date1, date2);
 var iWeeks, iDateDiff, iAdjust = 0;
 
-  if (dDate2 < dDate1) return -1;                 // error code if dates transposed
+  if (dDate2 < dDate1) 
+  alert("fill the date correctly");                 // error code if dates transposed
 
   var iWeekday1 = dDate1.getDay();                // day of week
   var iWeekday2 = dDate2.getDay();
@@ -316,6 +317,7 @@ Arrangement of classes missed: <br/>
 <script  type="text/javascript">
  var frmvalidator = new Validator("myform");
  frmvalidator.addValidation("n_cls","req","Please enter Number of classes missed");
+ frmvalidator.addValidation("n_cls","num","Please enter NUMBER in DIGITS");
  frmvalidator.addValidation("days","req","Please enter Number of days");
  frmvalidator.addValidation("reason","req","Please give a reason");
  frmvalidator.addValidation("from","req","Please pick a date");
@@ -348,8 +350,6 @@ frmvalidator.EnableMsgsTogether();
             <div class="modal-body">
               <center><p><b>Edit Info</b> </p></center>
  <form  action="editinfo.php" method="post">
-Name <br/>
-<textarea  id="expand" class="txtarea" name='name' rows='1' cols='1000' wrap="physical" ><?php echo $info['name'];?></textarea> <br/>
 Address <br/>
   <textarea  id="expand" class="txtarea" name='address' rows='5' cols='1000' wrap="physical" ><?php echo $info['address'];?></textarea> <br/>
   Phone No. <br/>
