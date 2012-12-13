@@ -234,6 +234,14 @@ function calcBusinessDays(date1, date2) {         // input given as Date objects
 
 }
 </script>
+<script type="text/javascript">
+var uvOptions = {};
+(function() {
+var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/w3Csb0zNyfz2mxFx4zbtfQ.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+})();
+</script>
 </body>
 </html>
 <?php } 

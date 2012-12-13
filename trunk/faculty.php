@@ -488,7 +488,14 @@ Arrangement of classes missed: <br/>
        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script> 
        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>  
 <script src="js/jquery-ui.js"></script>
-
+<script type="text/javascript">
+var uvOptions = {};
+(function() {
+var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/w3Csb0zNyfz2mxFx4zbtfQ.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+})();
+</script>
 </body>
 </html>
 <?php }
